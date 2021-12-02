@@ -1,2 +1,2 @@
-# RPA_PROJECT_RentOffersGenerator
+# RPA-PROJECT-RentOffersGenerator
 Automated Rent Offers Generator Desktop Application
