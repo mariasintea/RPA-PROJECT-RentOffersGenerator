@@ -4205,9 +4205,9 @@
     "restore": {
       "projectUniqueName": "RPA_RentOffersGenerator",
       "projectName": "RPA_RentOffersGenerator",
-      "projectPath": "C:\\Users\\miamu\\OneDrive\\Desktop\\Facultate\\Semestrul5\\RPA\\RPA_RentOffersGenerator\\.local",
+      "projectPath": "C:\\Users\\miamu\\OneDrive\\Desktop\\Facultate\\Semestrul5\\RPA\\RPA_PROJECT_RentOffersGenerator\\RPA_RentOffersGenerator\\.local",
       "packagesPath": "C:\\Users\\miamu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\miamu\\OneDrive\\Desktop\\Facultate\\Semestrul5\\RPA\\RPA_RentOffersGenerator\\.local"
+      "outputPath": "C:\\Users\\miamu\\OneDrive\\Desktop\\Facultate\\Semestrul5\\RPA\\RPA_PROJECT_RentOffersGenerator\\RPA_RentOffersGenerator\\.local"
     },
     "frameworks": {
       "net461": {
@@ -4240,21 +4240,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU3034",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Threading.Tasks.Dataflow 5.0.0' from source 'https://www.myget.org/F/workflow/': This package is signed but not by a trusted signer.",
-      "libraryId": "System.Threading.Tasks.Dataflow"
-    },
-    {
-      "code": "NU3034",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Threading.Tasks.Extensions 4.5.1' from source 'https://api.nuget.org/v3/index.json': This package is signed but not by a trusted signer.",
-      "libraryId": "System.Threading.Tasks.Extensions"
-    }
-  ]
+  }
 }
