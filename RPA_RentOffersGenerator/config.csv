@@ -1,0 +1,6 @@
+﻿URL,https://www.imobiliare.ro/inchirieri-apartamente/cluj-napoca
+resultsFile,results.xlsx
+resultsSheet,Sheet1
+resultsStartCell,A1
+mailSubject,Rent Offers
+mailBody,Here are the top 5 results!

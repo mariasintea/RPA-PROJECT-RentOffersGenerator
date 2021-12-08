@@ -209,6 +209,17 @@
         "C:\\Users\\miamu\\.nuget\\packages\\uipath.vision/2.2.0\\lib/net461/UiPath.Vision.dll"
       ],
       "Path": "C:\\Users\\miamu\\.nuget\\packages\\uipath.uiautomation.activities\\20.10.9"
+    },
+    {
+      "Package": {
+        "Id": "Microsoft.Activities.Extensions",
+        "Version": "2.0.6.9"
+      },
+      "Assemblies": [
+        "C:\\Users\\miamu\\.nuget\\packages\\microsoft.activities.extensions/2.0.6.9\\lib/Net45/Microsoft.Activities.Extensions.Design.dll",
+        "C:\\Users\\miamu\\.nuget\\packages\\microsoft.activities.extensions/2.0.6.9\\lib/Net45/Microsoft.Activities.Extensions.dll"
+      ],
+      "Path": "C:\\Users\\miamu\\.nuget\\packages\\microsoft.activities.extensions\\2.0.6.9"
     }
   ],
   "Conflicts": [],
@@ -370,6 +381,11 @@
     "interop.domino.dll": {
       "Id": "interop.domino.dll",
       "Version": "1.0.0",
+      "Dependencies": []
+    },
+    "Microsoft.Activities.Extensions": {
+      "Id": "Microsoft.Activities.Extensions",
+      "Version": "2.0.6.9",
       "Dependencies": []
     },
     "Microsoft.AspNet.SignalR.Client": {
@@ -1366,6 +1382,17 @@
         "C:\\Users\\miamu\\.nuget\\packages\\interop.domino.dll\\1.0.0\\lib\\Interop.Domino.dll"
       ],
       "Path": "C:\\Users\\miamu\\.nuget\\packages\\interop.domino.dll\\1.0.0"
+    },
+    {
+      "Package": {
+        "Id": "Microsoft.Activities.Extensions",
+        "Version": "2.0.6.9"
+      },
+      "Assemblies": [
+        "C:\\Users\\miamu\\.nuget\\packages\\microsoft.activities.extensions\\2.0.6.9\\lib\\Net45\\Microsoft.Activities.Extensions.Design.dll",
+        "C:\\Users\\miamu\\.nuget\\packages\\microsoft.activities.extensions\\2.0.6.9\\lib\\Net45\\Microsoft.Activities.Extensions.dll"
+      ],
+      "Path": "C:\\Users\\miamu\\.nuget\\packages\\microsoft.activities.extensions\\2.0.6.9"
     },
     {
       "Package": {
