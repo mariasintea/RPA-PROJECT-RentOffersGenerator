@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>730,1196</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>847.333333333333,1228.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExtractResults_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -78,25 +78,25 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ExtractResults" sap:VirtualizedContainerService.HintSize="740,1131.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Extracts top 5 results from list if there are results, otherwise throws an error" DisplayName="ExtractResults" sap:VirtualizedContainerService.HintSize="740,1164" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="noResults" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Apartamente'" sap:VirtualizedContainerService.HintSize="698,1039.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="8710288a3493b36e0d7f4e3a7689a90a" Selector="&lt;html app='chrome.exe' title='Apartamente de închiriat în Cluj-Napoca - Imobiliare.ro' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Apartamente'" sap:VirtualizedContainerService.HintSize="698,1041.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="8710288a3493b36e0d7f4e3a7689a90a" Selector="&lt;html app='chrome.exe' title='Apartamente de închiriat în Cluj-Napoca - Imobiliare.ro' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="664,893.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="664,895.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -114,12 +114,12 @@
                 </ui:Target>
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
-            <If Condition="[noResults = True]" DisplayName="If there are no results" sap:VirtualizedContainerService.HintSize="622,655.333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[noResults = True]" DisplayName="If there are no results" sap:VirtualizedContainerService.HintSize="622,657.333333333333" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <Throw DisplayName="Throw Exception" Exception="[new Exception(&quot;No results were found!&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Extract Top 5 Results" sap:VirtualizedContainerService.HintSize="376,506" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Extract Top 5 Results" sap:VirtualizedContainerService.HintSize="376,506.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="sd:DataTable" Name="ExtractDataTable" />
                   </Sequence.Variables>
@@ -138,14 +138,10 @@
                     </ui:ExtractData.Target>
                   </ui:ExtractData>
                   <ui:WriteRange AddHeaders="False" DataTable="[ExtractDataTable]" DisplayName="Export results to Excel" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[utils(&quot;resultsSheet&quot;)]" StartingCell="[utils(&quot;resultsStartCell&quot;)]" WorkbookPath="[utils(&quot;resultsFile&quot;)]" />
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Send Email Workflow" sap:VirtualizedContainerService.HintSize="334,113.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="SendEmail.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Send Email Workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="SendEmail.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="utils">
-                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="utils" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="emailAddress">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="emailAddress" />
-                      </InArgument>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="utils">[utils]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="emailAddress">[emailAddress]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </Sequence>

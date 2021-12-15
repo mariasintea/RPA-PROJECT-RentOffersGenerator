@@ -4234,15 +4234,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\miamu\\.nuget\\packages\\": {}
+    "C:\\Users\\Maria\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "RPA_RentOffersGenerator",
       "projectName": "RPA_RentOffersGenerator",
-      "projectPath": "C:\\Users\\miamu\\OneDrive\\Desktop\\Facultate\\Semestrul5\\RPA\\RPA_PROJECT_RentOffersGenerator\\RPA_RentOffersGenerator\\.local",
-      "packagesPath": "C:\\Users\\miamu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\miamu\\OneDrive\\Desktop\\Facultate\\Semestrul5\\RPA\\RPA_PROJECT_RentOffersGenerator\\RPA_RentOffersGenerator\\.local"
+      "projectPath": "C:\\Users\\Maria\\Desktop\\RPA-PROJECT-RentOffersGenerator\\RPA_RentOffersGenerator\\.local",
+      "packagesPath": "C:\\Users\\Maria\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Maria\\Desktop\\RPA-PROJECT-RentOffersGenerator\\RPA_RentOffersGenerator\\.local"
     },
     "frameworks": {
       "net461": {
