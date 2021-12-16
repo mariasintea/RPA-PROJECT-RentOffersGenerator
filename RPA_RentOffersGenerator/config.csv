@@ -4,3 +4,4 @@ resultsSheet,Sheet1
 resultsStartCell,A1
 mailSubject,Rent Offers
 mailBody,Here are the top 5 results!
+noResults,Din păcate nimic nu se potriveşte cu criteriile alese. Încearcă să renunţi la unele din ele.

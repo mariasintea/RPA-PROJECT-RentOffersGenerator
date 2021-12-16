@@ -6,6 +6,7 @@
     <x:Property Name="emailAddress" Type="InArgument(x:String)" />
     <x:Property Name="noOfRooms" Type="InArgument(x:Int32)" />
     <x:Property Name="utils" Type="InArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="browser" Type="InArgument(ui:Browser)" />
   </x:Members>
   <this:RentOffersGenerator.utils>
     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" />
@@ -13,7 +14,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>847.333333333333,1205.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>650,1205.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>RentOffersGenerator_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -94,7 +95,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser at the rent offers website" sap:VirtualizedContainerService.HintSize="466.666666666667,986.666666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Url="[utils(&quot;URL&quot;)]">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser at the rent offers website" sap:VirtualizedContainerService.HintSize="466.666666666667,986.666666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" UiBrowser="[browser]" Url="[utils(&quot;URL&quot;)]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -112,29 +113,55 @@
             <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_3" />
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Select Neighbourhood Workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="SelectNeighbourhood.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="neighbourhood">[neighbourhood]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="neighbourhood">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="neighbourhood" />
+                </InArgument>
+                <InArgument x:TypeArguments="ui:Browser" x:Key="browser">
+                  <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browser" />
+                </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Select Price Range Workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="SelectPriceRange.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="startingPrice">[startingPrice]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="endingPrice">[endingPrice]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="startingPrice">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="startingPrice" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="endingPrice">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="endingPrice" />
+                </InArgument>
+                <InArgument x:TypeArguments="ui:Browser" x:Key="browser">
+                  <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browser" />
+                </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Select Number Of Rooms Workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="SelectNoOfRooms.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:Int32" x:Key="noOfRooms">[noOfRooms]</InArgument>
+                <InArgument x:TypeArguments="x:Int32" x:Key="noOfRooms">
+                  <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="noOfRooms" />
+                </InArgument>
+                <InArgument x:TypeArguments="ui:Browser" x:Key="browser">
+                  <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browser" />
+                </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Sort Results Workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="SortResults.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                <InArgument x:TypeArguments="ui:Browser" x:Key="browser">
+                  <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browser" />
+                </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Extract Results Workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="ExtractResults.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="utils">[utils]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="emailAddress">[emailAddress]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="utils">
+                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="utils" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="emailAddress">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="emailAddress" />
+                </InArgument>
+                <InArgument x:TypeArguments="ui:Browser" x:Key="browser">
+                  <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browser" />
+                </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>

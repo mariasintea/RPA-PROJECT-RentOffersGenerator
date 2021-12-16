@@ -2,6 +2,7 @@
   <x:Members>
     <x:Property Name="utils" Type="InArgument(scg:Dictionary(x:String, x:String))" />
     <x:Property Name="emailAddress" Type="InArgument(x:String)" />
+    <x:Property Name="browser" Type="InArgument(ui:Browser)" />
   </x:Members>
   <this:ExtractResults.utils>
     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" />
@@ -9,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>847.333333333333,1228.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>730,1359.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExtractResults_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -78,9 +79,10 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Extracts top 5 results from list if there are results, otherwise throws an error" DisplayName="ExtractResults" sap:VirtualizedContainerService.HintSize="740,1164" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Extracts top 5 results from list if there are results, otherwise throws an error" DisplayName="ExtractResults" sap:VirtualizedContainerService.HintSize="740,1294.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="noResults" />
     </Sequence.Variables>
@@ -90,21 +92,21 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Apartamente'" sap:VirtualizedContainerService.HintSize="698,1041.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="8710288a3493b36e0d7f4e3a7689a90a" Selector="&lt;html app='chrome.exe' title='Apartamente de închiriat în Cluj-Napoca - Imobiliare.ro' /&gt;">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[browser]" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Apartamente'" sap:VirtualizedContainerService.HintSize="698,1172" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="8710288a3493b36e0d7f4e3a7689a90a">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="664,895.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="664,1026" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:UiElementExists DisplayName="Check if there are no results" Exists="[noResults]" sap:VirtualizedContainerService.HintSize="622,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
-              <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4918c72c-8c56-4a62-bfd8-5bc2041c0447" InformativeScreenshot="636fba0da30e148c374bdfd09cc8a164" Selector="&lt;webctrl idx='2' parentid='container-lista-rezultate' tag='P' /&gt;">
+            <ui:TextExists FormattedText="{x:Null}" DisplayName="Text Exists 'DIV'" sap:VirtualizedContainerService.HintSize="622,134" sap2010:WorkflowViewState.IdRef="TextExists_1" Occurrence="1" Result="[noResults]" Text="[utils(&quot;noResults&quot;)]">
+              <ui:TextExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="683911b5-d0b1-44c9-9cb2-6c7acddd54ce" InformativeScreenshot="347537345320ed15fc5a166fbe38b73d" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='container-lista-rezultate' tag='DIV' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -112,8 +114,9 @@
                     <InArgument x:TypeArguments="ui:WaitForReady" />
                   </ui:Target.WaitForReady>
                 </ui:Target>
-              </ui:UiElementExists.Target>
-            </ui:UiElementExists>
+              </ui:TextExists.Target>
+            </ui:TextExists>
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="622,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[noResults.ToString]" />
             <If Condition="[noResults = True]" DisplayName="If there are no results" sap:VirtualizedContainerService.HintSize="622,657.333333333333" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <Throw DisplayName="Throw Exception" Exception="[new Exception(&quot;No results were found!&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
