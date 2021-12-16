@@ -1,12 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="SelectNeighbourhood" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="neighbourhood" Type="InArgument(x:String)" />
-    <x:Property Name="browser" Type="InArgument(ui:Browser)" />
+    <x:Property Name="browser" Type="InOutArgument(ui:Browser)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>592,1255.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>478,1255.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SelectNeighbourhood_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -62,7 +62,6 @@
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Types and selects the given neighbourhood name into the corresponding field" DisplayName="SelectNeighbourhood" sap:VirtualizedContainerService.HintSize="476,1190.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -87,7 +86,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type the neighbourhood Into 'search bar'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[neighbourhood]">
               <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3cd0df5c-43d5-4bc1-a2e8-dfab4e5d4fbb" InformativeScreenshot="3722a15d656fceff9db648bb3f9fb8dd" Selector="&lt;html app='chrome.exe' title='Apartamente de închiriat în Cluj-Napoca - Anunturi Imobiliare.ro' /&gt;&lt;webctrl parentid='localizare_autocomplete_chosen' tag='INPUT' type='text' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3cd0df5c-43d5-4bc1-a2e8-dfab4e5d4fbb" InformativeScreenshot="3722a15d656fceff9db648bb3f9fb8dd" Selector="&lt;html app='chrome.exe' /&gt;&#xD;&#xA;&lt;webctrl parentid='localizare_autocomplete_chosen' tag='INPUT' type='text' /&gt;&#xD;&#xA;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -109,7 +108,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7ce8f658-feba-4271-99d5-3b2ea69cfe4b" InformativeScreenshot="d18f7de37dd03d20f15c924fb2f7c1ca" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;nav&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li' parentid='localizare_autocomplete_chosen' tag='LI' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7ce8f658-feba-4271-99d5-3b2ea69cfe4b" InformativeScreenshot="3d590e418075c7139f66a84c8341deea" Selector="&lt;html app='chrome.exe' /&gt;&#xD;&#xA;&lt;webctrl parentid='localizare_autocomplete_chosen' tag='SPAN' idx='9' /&gt;&#xD;&#xA;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -132,7 +131,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7617efd8-f482-4006-a784-79e6698b7495" InformativeScreenshot="f7734811b8fd014324dde7b2737dced2" Selector="&lt;html app='chrome.exe' title='Apartamente de închiriat Cluj-Napoca, zona Mănăştur - Imobiliare.ro' /&gt;&#xD;&#xA;&lt;webctrl aaname='Închide' parentid='localizare_autocomplete_chosen' tag='DIV' /&gt;&#xD;&#xA;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7617efd8-f482-4006-a784-79e6698b7495" InformativeScreenshot="f7734811b8fd014324dde7b2737dced2" Selector="&lt;html app='chrome.exe' /&gt;&lt;webctrl aaname='Închide' parentid='localizare_autocomplete_chosen' tag='DIV' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>

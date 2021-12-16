@@ -1,12 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="SelectNoOfRooms" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="noOfRooms" Type="InArgument(x:Int32)" />
-    <x:Property Name="browser" Type="InArgument(ui:Browser)" />
+    <x:Property Name="browser" Type="InOutArgument(ui:Browser)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>750.666666666667,1109.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>478,1109.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SelectNoOfRooms_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -62,7 +62,6 @@
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Selects the given number of rooms from the corresponding drop-down menu" DisplayName="SelectNoOfRooms" sap:VirtualizedContainerService.HintSize="476,1044.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -73,7 +72,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Entered SelectNoOfRooms workflow&quot;]" />
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[browser]" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Apartamente'" sap:VirtualizedContainerService.HintSize="434,652.666666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="b277d0dcc9f9fee9786197d540689212">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[browser]" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Apartamente'" sap:VirtualizedContainerService.HintSize="434,652.666666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="b277d0dcc9f9fee9786197d540689212" UiBrowser="[browser]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -97,7 +96,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fa56dd40-a580-4a6e-85cd-a259492c9a80" InformativeScreenshot="155da52f3d533174335f762a425b0a5d" Selector="&lt;webctrl aria-role='button' tag='A' aaname='Număr camere' parentid='form_filtre' /&gt;&#xA;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fa56dd40-a580-4a6e-85cd-a259492c9a80" InformativeScreenshot="155da52f3d533174335f762a425b0a5d" Selector="&lt;html app='chrome.exe' /&gt;&#xD;&#xA;&lt;webctrl aria-role='button' tag='A' aaname='Număr camere' parentid='form_filtre' /&gt;&#xD;&#xA;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -119,7 +118,7 @@
                 </ui:CursorPosition>
               </ui:ClickText.CursorPosition>
               <ui:ClickText.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5046ae9d-4707-4da2-a5d7-93a7cd45e6bc" InformativeScreenshot="0a9d7f62b052e8d0cb853e84efbf6fb0" Selector="&lt;webctrl aria-role='menu' idx='1' parentid='form_filtre' tag='UL' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5046ae9d-4707-4da2-a5d7-93a7cd45e6bc" InformativeScreenshot="0a9d7f62b052e8d0cb853e84efbf6fb0" Selector="&lt;html app='chrome.exe' /&gt;&#xD;&#xA;&lt;webctrl aria-role='menu' parentid='form_filtre' tag='UL' aaname='                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *' idx='1' /&gt;&#xD;&#xA;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
