@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>650,894</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>592,1432.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SelectPriceRange_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -55,22 +55,32 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Selects the given starting price and the given ending price from the corresponding drop-down menus" DisplayName="SelectPriceRange" sap:VirtualizedContainerService.HintSize="476.666666666667,829.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Selects the given starting price and the given ending price from the corresponding drop-down menus" DisplayName="SelectPriceRange" sap:VirtualizedContainerService.HintSize="476.666666666667,1368" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[browser]" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Apartamente'" sap:VirtualizedContainerService.HintSize="434.666666666667,692" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="b277d0dcc9f9fee9786197d540689212">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Entered SelectPriceRange workflow&quot;]" />
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[browser]" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Apartamente'" sap:VirtualizedContainerService.HintSize="434.666666666667,961.333333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="b277d0dcc9f9fee9786197d540689212">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400.666666666667,546" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400.666666666667,815.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -135,7 +145,7 @@
                 </scg:List>
               </ui:SelectItem.Items>
               <ui:SelectItem.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="696b23a2-9596-4c95-9dff-5354f2e90d3e" InformativeScreenshot="d891a753a0a756d141df07dbdee291a0" Selector="&lt;html app='chrome.exe' title='Apartamente de închiriat Cluj-Napoca, zona Mănăştur - Imobiliare.ro' /&gt;&#xA;&lt;webctrl tag='SELECT' parentid='form_filtre' idx='1' /&gt;&#xA;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="696b23a2-9596-4c95-9dff-5354f2e90d3e" InformativeScreenshot="d891a753a0a756d141df07dbdee291a0" Selector="&lt;html app='chrome.exe' title='Apartamente de închiriat Cluj-Napoca, zona Mănăştur - Imobiliare.ro' /&gt;&lt;webctrl tag='SELECT' parentid='form_filtre' idx='1' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -145,6 +155,7 @@
                 </ui:Target>
               </ui:SelectItem.Target>
             </ui:SelectItem>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Selected starting price&quot;]" />
             <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select ending price" sap:VirtualizedContainerService.HintSize="358.666666666667,134" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="[endingPrice]">
               <ui:SelectItem.Items>
                 <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -182,7 +193,7 @@
                 </scg:List>
               </ui:SelectItem.Items>
               <ui:SelectItem.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7884e13d-d620-4401-984e-0e11225aa902" InformativeScreenshot="f7aefdc371504368fa72392016ceacfe" Selector="&lt;html app='chrome.exe' title='Apartamente de închiriat Cluj-Napoca, zona Mănăştur, cu chirie minim 150EUR - 14757013 - Imobiliare.ro' /&gt;&#xD;&#xA;&lt;webctrl tag='SELECT' idx='3' /&gt;&#xD;&#xA;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7884e13d-d620-4401-984e-0e11225aa902" InformativeScreenshot="f7aefdc371504368fa72392016ceacfe" Selector="&lt;html app='chrome.exe' title='Apartamente de închiriat Cluj-Napoca, zona Mănăştur, cu chirie minim 250EUR - 91467730 - Imobiliare.ro' /&gt;&lt;webctrl tag='SELECT' parentid='form_filtre' idx='2' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -192,9 +203,11 @@
                 </ui:Target>
               </ui:SelectItem.Target>
             </ui:SelectItem>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Selected ending price&quot;]" />
           </Sequence>
         </ActivityAction>
       </ui:BrowserScope.Body>
     </ui:BrowserScope>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Exiting SelectPriceRange workflow&quot;]" />
   </Sequence>
 </Activity>

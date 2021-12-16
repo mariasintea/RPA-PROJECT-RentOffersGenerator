@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>730,1359.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>906,1898</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExtractResults_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -79,10 +79,11 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Extracts top 5 results from list if there are results, otherwise throws an error" DisplayName="ExtractResults" sap:VirtualizedContainerService.HintSize="740,1294.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Extracts top 5 results from list if there are results, otherwise throws an error" DisplayName="ExtractResults" sap:VirtualizedContainerService.HintSize="916,1833.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="noResults" />
     </Sequence.Variables>
@@ -92,19 +93,20 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[browser]" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Apartamente'" sap:VirtualizedContainerService.HintSize="698,1172" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="8710288a3493b36e0d7f4e3a7689a90a">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="874,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Entered ExtractResults workflow&quot;]" />
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[browser]" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Apartamente'" sap:VirtualizedContainerService.HintSize="874,1441.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="8710288a3493b36e0d7f4e3a7689a90a">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="664,1026" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="840,1295.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:TextExists FormattedText="{x:Null}" DisplayName="Text Exists 'DIV'" sap:VirtualizedContainerService.HintSize="622,134" sap2010:WorkflowViewState.IdRef="TextExists_1" Occurrence="1" Result="[noResults]" Text="[utils(&quot;noResults&quot;)]">
+            <ui:TextExists FormattedText="{x:Null}" DisplayName="Text Exists 'DIV'" sap:VirtualizedContainerService.HintSize="798,134" sap2010:WorkflowViewState.IdRef="TextExists_1" Occurrence="1" Result="[noResults]" Text="[utils(&quot;noResults&quot;)]">
               <ui:TextExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="683911b5-d0b1-44c9-9cb2-6c7acddd54ce" InformativeScreenshot="347537345320ed15fc5a166fbe38b73d" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='container-lista-rezultate' tag='DIV' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -116,13 +118,21 @@
                 </ui:Target>
               </ui:TextExists.Target>
             </ui:TextExists>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="622,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[noResults.ToString]" />
-            <If Condition="[noResults = True]" DisplayName="If there are no results" sap:VirtualizedContainerService.HintSize="622,657.333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="798,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[noResults.ToString]" />
+            <If Condition="[noResults = True]" DisplayName="If there are no results" sap:VirtualizedContainerService.HintSize="798,926.666666666667" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Throw DisplayName="Throw Exception" Exception="[new Exception(&quot;No results were found!&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                <Sequence sap:VirtualizedContainerService.HintSize="376,248.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Throwing error - no results found&quot;]" />
+                  <Throw DisplayName="Throw Exception" Exception="[new Exception(&quot;No results were found!&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Extract Top 5 Results" sap:VirtualizedContainerService.HintSize="376,506.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Extract Top 5 Results" sap:VirtualizedContainerService.HintSize="376,776" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="sd:DataTable" Name="ExtractDataTable" />
                   </Sequence.Variables>
@@ -140,7 +150,9 @@
                       </ui:Target>
                     </ui:ExtractData.Target>
                   </ui:ExtractData>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Extracted results from website&quot;]" />
                   <ui:WriteRange AddHeaders="False" DataTable="[ExtractDataTable]" DisplayName="Export results to Excel" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[utils(&quot;resultsSheet&quot;)]" StartingCell="[utils(&quot;resultsStartCell&quot;)]" WorkbookPath="[utils(&quot;resultsFile&quot;)]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Exported results to Excel file&quot;]" />
                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Send Email Workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="SendEmail.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="utils">[utils]</InArgument>
@@ -154,5 +166,6 @@
         </ActivityAction>
       </ui:BrowserScope.Body>
     </ui:BrowserScope>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="874,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Exiting ExtractResults workflow&quot;]" />
   </Sequence>
 </Activity>
