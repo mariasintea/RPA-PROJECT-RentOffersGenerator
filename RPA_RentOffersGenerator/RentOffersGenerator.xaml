@@ -85,7 +85,6 @@
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Selects neighbourhood, price range, number of rooms. Sorts the search results by price in ascending order. Extract top 5 results and sends email with the results attached as an Excel file, if there are results, otherwise throws an exception." DisplayName="RentOffersGenerator" sap:VirtualizedContainerService.HintSize="508.666666666667,1606.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -118,35 +117,21 @@
             <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_3" />
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Select Neighbourhood Workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="SelectNeighbourhood.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="neighbourhood">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="neighbourhood" />
-                </InArgument>
-                <InOutArgument x:TypeArguments="ui:Browser" x:Key="browser">
-                  <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="browser" />
-                </InOutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="neighbourhood">[neighbourhood]</InArgument>
+                <InOutArgument x:TypeArguments="ui:Browser" x:Key="browser">[browser]</InOutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Select Price Range Workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="SelectPriceRange.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="startingPrice">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="startingPrice" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="endingPrice">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="endingPrice" />
-                </InArgument>
-                <InOutArgument x:TypeArguments="ui:Browser" x:Key="browser">
-                  <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="browser" />
-                </InOutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="startingPrice">[startingPrice]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="endingPrice">[endingPrice]</InArgument>
+                <InOutArgument x:TypeArguments="ui:Browser" x:Key="browser">[browser]</InOutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Select Number Of Rooms Workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="SelectNoOfRooms.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:Int32" x:Key="noOfRooms">
-                  <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="noOfRooms" />
-                </InArgument>
-                <InOutArgument x:TypeArguments="ui:Browser" x:Key="browser">
-                  <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="browser" />
-                </InOutArgument>
+                <InArgument x:TypeArguments="x:Int32" x:Key="noOfRooms">[noOfRooms]</InArgument>
+                <InOutArgument x:TypeArguments="ui:Browser" x:Key="browser">[browser]</InOutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Sort Results Workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="SortResults.xaml">
@@ -161,7 +146,7 @@
                 <InArgument x:TypeArguments="ui:Browser" x:Key="browser">[browser]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <ui:CloseTab Browser="[browser]" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
+            <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="chrome" />
           </Sequence>
         </ActivityAction>
       </ui:OpenBrowser.Body>
